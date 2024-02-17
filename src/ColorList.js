@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import "./ColorList.css";
 
 
 function ColorList({ colors }) {
@@ -8,7 +9,10 @@ function ColorList({ colors }) {
         <div>
             <Link to="/colors/new">Add a Color</Link>
             <div>
-                {colors.map(({id, color}) => <Link key={id} to={`/colors/${color}`}>{color}</Link>)}
+                <ul>
+                {colors.map(({id, color}) => <li key={id}><Link  to={`/colors/${color}`}>{color}</Link></li>)}
+                </ul>
+                
             </div>
         </div>
     );

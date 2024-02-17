@@ -5,9 +5,14 @@ import "./ColorDetail.css";
 function ColorDetail({ color }) {
     if (!color) return <Navigate to="/colors" />
 
+    // Create the style object with the dynamic color
+    const headingStyle = {
+        color: color
+    };
+
     return (
         <div>
-            <h2>{color}</h2>
+            <h1 style={headingStyle}>{color}</h1>
             <Link to="/colors">Go back</Link>
         </div>
     );

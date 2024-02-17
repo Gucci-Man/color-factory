@@ -5,7 +5,6 @@ import ColorDetail from './ColorDetail';
 
 function FilterColorDetails({ colors }) {
     const { color } = useParams();
-    console.log(colors)
 
     if (color) {
         const currentColor = colors.find(
