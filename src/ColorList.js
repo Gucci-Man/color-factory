@@ -1,19 +1,15 @@
-import React, { useState }from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
-import { v4 as uuid } from "uuid";
-import NewColorForm from './NewColorForm';
 
-function ColorList() {
-    const INITIAL_STATE = [];
 
-    const [colors, setColor] = useState(INITIAL_STATE);
-    const addColor = (newColor) => {
-        setColor(colors => [...colors, {...newColor, id: uuid() }])
-    }
+function ColorList({ colors }) {
+    
     return (
         <div>
-            <h2>List of colors</h2>
-            <NewColorForm addColor={addColor} />
+            <Link to="/colors/new">Add a Color</Link>
+            <div>
+                {colors.map(({id, color}) => <Link key={id} to={`/colors/${color}`}>{color}</Link>)}
+            </div>
         </div>
     );
 }

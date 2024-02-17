@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
+import { useNavigate } from "react-router-dom";
 
 const NewColorForm = ({ addColor }) => {
+    const navigate = useNavigate();
     const INITIAL_STATE = {
         color: ''
     }
@@ -14,9 +16,9 @@ const NewColorForm = ({ addColor }) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData)
         addColor({...formData});
         setFormData(INITIAL_STATE);
+        navigate('/colors');
     }
 
     return (
