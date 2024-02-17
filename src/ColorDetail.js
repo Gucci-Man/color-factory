@@ -7,7 +7,7 @@ function ColorDetail({ color }) {
 
     return (
         <div>
-            <h2>{{color}}</h2>
+            <h2>{color}</h2>
             <Link to="/colors">Go back</Link>
         </div>
     );

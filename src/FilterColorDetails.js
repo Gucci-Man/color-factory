@@ -1,15 +1,20 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 import ColorDetail from './ColorDetail';
+
 
 function FilterColorDetails({ colors }) {
     const { color } = useParams();
+    console.log(colors)
 
     if (color) {
         const currentColor = colors.find(
-            colorObj => colorObj.color.toLowerCase === color.toLowerCase()
+            colorObj => colorObj.color.toLowerCase() === color.toLowerCase()
         );
-        return <ColorDetail color={currentColor} />
+        if(!currentColor) {
+            return <Navigate to="/colors"/>
+        }
+        return <ColorDetail color={currentColor.color} />
     }
 
     return null;
